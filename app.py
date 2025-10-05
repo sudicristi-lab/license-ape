@@ -254,4 +254,8 @@ def create_license():
         flash('License created successfully', 'success')
         return redirect(url_for('admin_licenses'))
 
-    except Exce
+    except Exception as e:
+    # log sau return error
+    print(e)
+    return jsonify({'error': 'Internal server error'}), 500
+
